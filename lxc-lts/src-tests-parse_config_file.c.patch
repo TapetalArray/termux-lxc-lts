@@ -1,0 +1,22 @@
+diff -uNr lxc-5.0.3/src/tests/parse_config_file.c lxc-5.0.3.mod/src/tests/parse_config_file.c
+--- lxc-5.0.3/src/tests/parse_config_file.c	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/tests/parse_config_file.c	2024-02-08 18:58:24.037730752 +0800
+@@ -404,14 +404,14 @@
+ 		goto non_test_error;
+ 	}
+ 
+-	if (set_get_compare_clear_save_load(c, "lxc.cgroup.cpuset.cpus",
++	if (set_get_compare_clear_save_load(c, "lxc.cgroup.cpus",
+ 					    "1-100", tmpf, false) < 0) {
+-		lxc_error("%s\n", "lxc.cgroup.cpuset.cpus");
++		lxc_error("%s\n", "lxc.cgroup.cpus");
+ 		goto non_test_error;
+ 	}
+ 
+-	if (!c->set_config_item(c, "lxc.cgroup.cpuset.cpus", "1-100")) {
+-		lxc_error("%s\n", "failed to set config item \"lxc.cgroup.cpuset.cpus\" to \"1-100\"");
++	if (!c->set_config_item(c, "lxc.cgroup.cpus", "1-100")) {
++		lxc_error("%s\n", "failed to set config item \"lxc.cgroup.cpus\" to \"1-100\"");
+ 		return -1;
+ 	}
+ 

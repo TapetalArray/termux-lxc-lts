@@ -1,0 +1,54 @@
+diff -uNr lxc-5.0.3/src/lxc/cgroups/cgfsng.c lxc-5.0.3.mod/src/lxc/cgroups/cgfsng.c
+--- lxc-5.0.3/src/lxc/cgroups/cgfsng.c	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/lxc/cgroups/cgfsng.c	2024-02-08 18:58:24.041064042 +0800
+@@ -592,9 +592,9 @@
+ 	int ret;
+ 	__u32 poss_last_set_bit = 0;
+ 
+-	posscpus = read_file_at(dfd_parent, "cpuset.cpus", PROTECT_OPEN, 0);
++	posscpus = read_file_at(dfd_parent, "cpus", PROTECT_OPEN, 0);
+ 	if (!posscpus)
+-		return log_error_errno(false, errno, "Failed to read file %d/cpuset.cpus", dfd_parent);
++		return log_error_errno(false, errno, "Failed to read file %d/cpus", dfd_parent);
+ 
+ 	if (file_exists(__ISOL_CPUS)) {
+ 		isolcpus = read_file_at(-EBADF, __ISOL_CPUS, PROTECT_OPEN, 0);
+@@ -645,9 +645,9 @@
+ 
+ copy_parent:
+ 	if (!am_initialized) {
+-		ret = lxc_writeat(dfd_child, "cpuset.cpus", cpulist, strlen(cpulist));
++		ret = lxc_writeat(dfd_child, "cpus", cpulist, strlen(cpulist));
+ 		if (ret < 0)
+-			return log_error_errno(false, errno, "Failed to write cpu list to \"%d/cpuset.cpus\"", dfd_child);
++			return log_error_errno(false, errno, "Failed to write cpu list to \"%d/cpus\"", dfd_child);
+ 
+ 		TRACE("Copied cpu settings of parent cgroup");
+ 	}
+@@ -666,19 +666,19 @@
+ 	if (bytes < 0)
+ 		return syserror_ret(false, "Failed to read file %d(cgroup.clone_children)", dfd_base);
+ 
+-	/* Initialize cpuset.cpus removing any isolated and offline cpus. */
++	/* Initialize cpus removing any isolated and offline cpus. */
+ 	if (!cpuset1_cpus_initialize(dfd_base, dfd_next, v == '1'))
+-		return syserror_ret(false, "Failed to initialize cpuset.cpus");
++		return syserror_ret(false, "Failed to initialize cpus");
+ 
+-	/* Read cpuset.mems from parent... */
+-	bytes = lxc_readat(dfd_base, "cpuset.mems", mems, sizeof(mems));
++	/* Read mems from parent... */
++	bytes = lxc_readat(dfd_base, "mems", mems, sizeof(mems));
+ 	if (bytes < 0)
+-		return syserror_ret(false, "Failed to read file %d(cpuset.mems)", dfd_base);
++		return syserror_ret(false, "Failed to read file %d(mems)", dfd_base);
+ 
+ 	/* and copy to first cgroup in the tree... */
+-	bytes = lxc_writeat(dfd_next, "cpuset.mems", mems, bytes);
++	bytes = lxc_writeat(dfd_next, "mems", mems, bytes);
+ 	if (bytes < 0)
+-		return syserror_ret(false, "Failed to write %d(cpuset.mems)", dfd_next);
++		return syserror_ret(false, "Failed to write %d(mems)", dfd_next);
+ 
+ 	/* and finally turn on cpuset inheritance. */
+ 	bytes = lxc_writeat(dfd_next, "cgroup.clone_children", "1", 1);

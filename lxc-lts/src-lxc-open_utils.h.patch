@@ -1,0 +1,12 @@
+diff -uNr lxc-5.0.3/src/lxc/open_utils.h lxc-5.0.3.mod/src/lxc/open_utils.h
+--- lxc-5.0.3/src/lxc/open_utils.h	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/lxc/open_utils.h	2024-02-08 18:54:53.700486577 +0800
+@@ -19,7 +19,7 @@
+  * @mode: O_CREAT/O_TMPFILE file mode.
+  * @resolve: RESOLVE_* flags.
+  */
+-#if !HAVE_STRUCT_OPEN_HOW
++#if !HAVE_STRUCT_OPEN_HOW && !__ANDROID__
+ struct open_how {
+ 	__u64 flags;
+ 	__u64 mode;

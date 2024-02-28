@@ -1,0 +1,40 @@
+diff -uNr lxc-5.0.3/src/tests/startone.c lxc-5.0.3.mod/src/tests/startone.c
+--- lxc-5.0.3/src/tests/startone.c	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/tests/startone.c	2024-02-08 18:58:24.037730752 +0800
+@@ -141,14 +141,14 @@
+ 		goto out;
+ 	}
+ 
+-	len = c->get_cgroup_item(c, "cpuset.cpus", buf, 200);
++	len = c->get_cgroup_item(c, "cpus", buf, 200);
+ 	if (len >= 0) {
+ 		fprintf(stderr, "%d: %s not running but had cgroup settings\n", __LINE__, MYNAME);
+ 		goto out;
+ 	}
+ 
+ 	sprintf(buf, "0");
+-	b = c->set_cgroup_item(c, "cpuset.cpus", buf);
++	b = c->set_cgroup_item(c, "cpus", buf);
+ 	if (b) {
+ 		fprintf(stderr, "%d: %s not running but could set cgroup settings\n", __LINE__, MYNAME);
+ 		goto out;
+@@ -190,15 +190,15 @@
+ 		goto out;
+ 	}
+ 
+-	len = c->get_cgroup_item(c, "cpuset.cpus", buf, 0);
++	len = c->get_cgroup_item(c, "cpus", buf, 0);
+ 	if (len <= 0) {
+-		fprintf(stderr, "%d: not able to get length of cpuset.cpus (ret %d)\n", __LINE__, len);
++		fprintf(stderr, "%d: not able to get length of cpus (ret %d)\n", __LINE__, len);
+ 		goto out;
+ 	}
+ 
+-	len = c->get_cgroup_item(c, "cpuset.cpus", buf, 200);
++	len = c->get_cgroup_item(c, "cpus", buf, 200);
+ 	if (len <= 0 || strncmp(buf, "0", 1)) {
+-		fprintf(stderr, "%d: not able to get cpuset.cpus (len %d buf %s)\n", __LINE__, len, buf);
++		fprintf(stderr, "%d: not able to get cpus (len %d buf %s)\n", __LINE__, len, buf);
+ 		goto out;
+ 	}
+ 

@@ -1,0 +1,59 @@
+diff -uNr lxc-5.0.3/src/lxc/pam/pam_cgfs.c lxc-5.0.3.mod/src/lxc/pam/pam_cgfs.c
+--- lxc-5.0.3/src/lxc/pam/pam_cgfs.c	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/lxc/pam/pam_cgfs.c	2024-02-08 18:58:24.037730752 +0800
+@@ -1687,7 +1687,7 @@
+ 	oldv = *lastslash;
+ 	*lastslash = '\0';
+ 
+-	fpath = must_make_path(path, "cpuset.cpus", NULL);
++	fpath = must_make_path(path, "cpus", NULL);
+ 	posscpus = read_file(fpath);
+ 	if (!posscpus) {
+ 		pam_cgfs_debug("Could not read file: %s\n", fpath);
+@@ -1705,7 +1705,7 @@
+ 		cpulist = posscpus;
+ 
+ 		/* No isolated cpus but we weren't already initialized by
+-		 * someone. We should simply copy the parents cpuset.cpus
++		 * someone. We should simply copy the parents cpus
+ 		 * values.
+ 		 */
+ 		if (!am_initialized) {
+@@ -1730,7 +1730,7 @@
+ 		cpulist = posscpus;
+ 
+ 		/* No isolated cpus but we weren't already initialized by
+-		 * someone. We should simply copy the parents cpuset.cpus
++		 * someone. We should simply copy the parents cpus
+ 		 * values.
+ 		 */
+ 		if (!am_initialized) {
+@@ -1789,7 +1789,7 @@
+ 
+ 	free(fpath);
+ 
+-	fpath = must_make_path(path, "cpuset.cpus", NULL);
++	fpath = must_make_path(path, "cpus", NULL);
+ 	ret = lxc_write_to_file(fpath, cpulist, strlen(cpulist), false, 0660);
+ 	if (ret < 0) {
+ 		pam_cgfs_debug("Could not write cpu list to: %s\n", fpath);
+@@ -1942,7 +1942,7 @@
+ 		return false;
+ 	}
+ 
+-	/* Make sure any isolated cpus are removed from cpuset.cpus. */
++	/* Make sure any isolated cpus are removed from cpus. */
+ 	if (!cg_filter_and_set_cpus(cgpath, v == '1')) {
+ 		pam_cgfs_debug("%s", "Failed to remove isolated cpus\n");
+ 		free(clonechildrenpath);
+@@ -1958,8 +1958,8 @@
+ 	}
+ 
+ 	/* copy parent's settings */
+-	if (!cg_copy_parent_file(cgpath, "cpuset.mems")) {
+-		pam_cgfs_debug("%s", "Failed to copy \"cpuset.mems\" settings\n");
++	if (!cg_copy_parent_file(cgpath, "mems")) {
++		pam_cgfs_debug("%s", "Failed to copy \"mems\" settings\n");
+ 		free(cgpath);
+ 		free(clonechildrenpath);
+ 		return false;

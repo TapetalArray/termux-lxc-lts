@@ -1,0 +1,12 @@
+diff -uNr lxc-5.0.3/src/lxc/tools/lxc_cgroup.c lxc-5.0.3.mod/src/lxc/tools/lxc_cgroup.c
+--- lxc-5.0.3/src/lxc/tools/lxc_cgroup.c	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/lxc/tools/lxc_cgroup.c	2024-02-08 18:58:24.037730752 +0800
+@@ -27,7 +27,7 @@
+ 	.help         = "\
+ --name=NAME state-object [value]\n\
+ \n\
+-Get or set the value of a state object (for example, 'cpuset.cpus')\n\
++Get or set the value of a state object (for example, 'cpus')\n\
+ in the container's cgroup for the corresponding subsystem.\n\
+ \n\
+ Options :\n\

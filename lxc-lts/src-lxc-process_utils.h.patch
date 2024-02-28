@@ -1,0 +1,12 @@
+diff -uNr lxc-5.0.3/src/lxc/process_utils.h lxc-5.0.3.mod/src/lxc/process_utils.h
+--- lxc-5.0.3/src/lxc/process_utils.h	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/lxc/process_utils.h	2024-02-08 18:54:53.707153154 +0800
+@@ -164,7 +164,7 @@
+ #define u64_to_ptr(x) ((void *)(uintptr_t)x)
+ #endif
+ 
+-#if !HAVE_STRUCT_CLONE_ARGS
++#if !HAVE_STRUCT_CLONE_ARGS && !__ANDROID__
+ struct clone_args {
+ 	__aligned_u64 flags;
+ 	__aligned_u64 pidfd;

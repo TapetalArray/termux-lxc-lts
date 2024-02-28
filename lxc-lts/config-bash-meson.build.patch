@@ -1,0 +1,19 @@
+diff -uNr lxc-5.0.3/config/bash/meson.build lxc-5.0.3.mod/config/bash/meson.build
+--- lxc-5.0.3/config/bash/meson.build	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/config/bash/meson.build	2024-02-08 18:54:53.693820000 +0800
+@@ -5,7 +5,7 @@
+     input: '_lxc.in',
+     output: '_lxc',
+     install: true,
+-    install_dir: bashcompletiondir)
++    install_dir: '@TERMUX_PREFIX@/share/bash-completion/completions')
+ 
+ 
+ foreach cmd: [
+@@ -35,5 +35,5 @@
+ ]
+     install_symlink(cmd,
+         pointing_to: '_lxc',
+-        install_dir: bashcompletiondir)
++        install_dir: '@TERMUX_PREFIX@/share/bash-completion/completions')
+ endforeach

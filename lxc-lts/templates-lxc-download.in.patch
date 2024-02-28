@@ -1,0 +1,15 @@
+diff -uNr lxc-5.0.3/templates/lxc-download.in lxc-5.0.3.mod/templates/lxc-download.in
+--- lxc-5.0.3/templates/lxc-download.in	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/templates/lxc-download.in	2024-02-08 18:54:53.713819732 +0800
+@@ -214,10 +214,7 @@
+ # Trap all exit signals
+ trap cleanup EXIT HUP INT TERM
+ 
+-# /tmp may be mounted in tmpfs or noexec
+-if mountpoint -q /tmp; then
+-  DOWNLOAD_TEMP="${LXC_PATH}"
+-fi
++DOWNLOAD_TEMP="${LXC_PATH}"
+ 
+ if ! command -V mktemp >/dev/null 2>&1; then
+   DOWNLOAD_TEMP="${DOWNLOAD_TEMP}/tmp/lxc-download.$$"

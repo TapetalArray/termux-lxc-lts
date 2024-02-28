@@ -1,0 +1,12 @@
+diff -uNr lxc-5.0.3/src/lxc/start.c lxc-5.0.3.mod/src/lxc/start.c
+--- lxc-5.0.3/src/lxc/start.c	2023-07-26 06:00:11.000000000 +0800
++++ lxc-5.0.3.mod/src/lxc/start.c	2024-02-09 15:19:49.810146096 +0800
+@@ -1365,7 +1365,7 @@
+ 	}
+ 
+ 	if (handler->conf->ttys.tty_names) {
+-		ret = putenv(handler->conf->ttys.tty_names);
++		ret = setenv("container_ttys", handler->conf->ttys.tty_names, 1);
+ 		if (ret < 0) {
+ 			SYSERROR("Failed to set environment variable for container ptys");
+ 			goto out_warn_father;

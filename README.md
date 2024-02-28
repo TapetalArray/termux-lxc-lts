@@ -85,6 +85,6 @@ lxc.mount.entry = /dev/kgsl-3d0 dev/kgsl-3d0 none bind,optional,create=file
 
 # Credits
 
-[lateautumn233](https://github.com/lateautumn233)
-[termux-packages](https://github.com/termux/termux-packages)
-[termux-packags-lxc](https://github.com/termux/termux-packages/tree/master/root-packages/lxc)
+* [lateautumn233](https://github.com/lateautumn233)
+* [termux-packages](https://github.com/termux/termux-packages)
+* [termux-packags-lxc](https://github.com/termux/termux-packages/tree/master/root-packages/lxc)

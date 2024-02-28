@@ -6,7 +6,7 @@ LXC LTS ported for Termux
 
 ```bash
 # Clone this repo
-git clone repo-link
+git clone https://github.com/TapetalArray/termux-lxc-lts
 
 # Setup Termux Packages
 git clone https://github.com/termux/termux-packages

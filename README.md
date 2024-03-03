@@ -30,7 +30,7 @@ cp ./termux-lxc-lts/lxc-lts ./termux-packages/packages
 
 You can refer to [this](https://gist.github.com/lateautumn233/939be0528a2cc34af66864bead58e68a) (Chinese)
 ```bash
-# Install Install dependencies
+# Install dependencies
 pkg upg
 pkg i x11-repo -y
 pkg i tsu pulseaudio termux-nightly -y

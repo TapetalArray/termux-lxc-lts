@@ -59,6 +59,9 @@ sudo mkdir -p /sys/fs/cgroup/systemd /sys/fs/cgroup/freezer
 sudo mount -t cgroup cgroup -o none,name=systemd /sys/fs/cgroup/systemd
 sudo mount -t cgroup cgroup -o none,name=freezer /sys/fs/cgroup/freezer
 
+# For systemd-binfmt
+sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+
 # Configure Network
 sed -i 's/lxc\.net\.0\.type = empty/lxc.net.0.type = none/g' $PREFIX/etc/lxc/default.conf
 
@@ -81,6 +84,8 @@ lxc.mount.entry = /data/data/com.termux/files/usr/tmp/.X11-unix tmp/.X11-unix no
 lxc.mount.entry = /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry = /dev/dma_heap dev/dma_heap none bind,optional,create=file
 lxc.mount.entry = /dev/kgsl-3d0 dev/kgsl-3d0 none bind,optional,create=file
+# For systemd-binfmt
+lxc.mount.entry = /proc/sys/fs/binfmt_misc proc/sys/fs/binfmt_misc none bind,optional,create=dir
 ```
 
 # Credits

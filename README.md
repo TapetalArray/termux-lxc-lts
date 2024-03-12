@@ -82,7 +82,7 @@ lxc.cgroup.devices.allow = a *:* rwm
 lxc.mount.entry = /data/data/com.termux/files/usr/tmp tmp none bind,optional,create=dir
 lxc.mount.entry = /data/data/com.termux/files/usr/tmp/.X11-unix tmp/.X11-unix none bind,ro,optional,create=dir
 lxc.mount.entry = /dev/dri dev/dri none bind,optional,create=dir
-lxc.mount.entry = /dev/dma_heap dev/dma_heap none bind,optional,create=file
+lxc.mount.entry = /dev/dma_heap dev/dma_heap none bind,optional,create=dir
 lxc.mount.entry = /dev/kgsl-3d0 dev/kgsl-3d0 none bind,optional,create=file
 # For systemd-binfmt
 lxc.mount.entry = /proc/sys/fs/binfmt_misc proc/sys/fs/binfmt_misc none bind,optional,create=dir

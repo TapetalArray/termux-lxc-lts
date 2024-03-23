@@ -17,10 +17,9 @@ cd ./termux-packages
 ./scripts/setup-ubuntu.sh
 # Android SDK
 ./scripts/setup-android-sdk.sh
-cd ..
 
 # Copy build configuration and patches
-cp ./termux-lxc-lts/lxc-lts ./termux-packages/packages
+cp ../termux-lxc-lts/lxc-lts ./termux-packages/packages
 
 # Build
 ./build-package.sh -i -a aarch64 lxc-lts
@@ -84,8 +83,12 @@ lxc.mount.entry = /data/data/com.termux/files/usr/tmp/.X11-unix tmp/.X11-unix no
 lxc.mount.entry = /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry = /dev/dma_heap dev/dma_heap none bind,optional,create=dir
 lxc.mount.entry = /dev/kgsl-3d0 dev/kgsl-3d0 none bind,optional,create=file
+
 # For systemd-binfmt
 lxc.mount.entry = /proc/sys/fs/binfmt_misc proc/sys/fs/binfmt_misc none bind,optional,create=dir
+
+# Fot fuse
+lxc.mount.entry = /dev/fuse dev/fuse none bind,optional,create=file
 ```
 
 # Credits

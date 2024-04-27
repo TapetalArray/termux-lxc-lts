@@ -87,7 +87,7 @@ lxc.mount.entry = /dev/kgsl-3d0 dev/kgsl-3d0 none bind,optional,create=file
 # For systemd-binfmt
 lxc.mount.entry = /proc/sys/fs/binfmt_misc proc/sys/fs/binfmt_misc none bind,optional,create=dir
 
-# Fot fuse
+# For fuse
 lxc.mount.entry = /dev/fuse dev/fuse none bind,optional,create=file
 ```
 

@@ -4,42 +4,68 @@ LXC LTS ported for Termux
 
 # Build
 
+Clone this repo
 ```bash
-# Clone this repo
 git clone https://github.com/TapetalArray/termux-lxc-lts
+```
 
-# Setup Termux Packages
+Setup Termux Packages
+```bash
 git clone https://github.com/termux/termux-packages
 cd ./termux-packages
-# Archlinux
+```
+
+Setup Archlinux
+```bash
 ./scripts/setup-archlinux.sh
-# Ubuntu
+```
+
+Setup Ubuntu
+```bash
 ./scripts/setup-ubuntu.sh
-# Android SDK
+```
+
+Setup Android SDK
+```bash
 ./scripts/setup-android-sdk.sh
+```
 
-# Copy build configuration and patches
+Copy build configuration and patches
+```bash
 cp ../termux-lxc-lts/lxc-lts ./termux-packages/packages
+```
 
-# Build
+Build
+```bash
 ./build-package.sh -i -a aarch64 lxc-lts
 ```
 
-# Usage
-
-You can refer to [this](https://gist.github.com/lateautumn233/939be0528a2cc34af66864bead58e68a) (Chinese)
+# Install
+Install dependencies
 ```bash
-# Install dependencies
 pkg upg
 pkg i x11-repo -y
 pkg i tsu pulseaudio termux-nightly -y
+pkg i ./lxc-lts-****.deb
+```
 
-# Start pulseaudio
+# Usage
+You can refer to [this](https://gist.github.com/lateautumn233/939be0528a2cc34af66864bead58e68a) (Chinese)
+
+Start Pulseaudio
+```bash
 pulseaudio --start \
     --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" \
     --exit-idle-time=-1
+```
 
-# Mount cgroup
+Start Termux X11
+```bash
+termux-x11 &
+```
+
+Mount cgroup (optipn)
+```bash
 for cg in blkio cpu cpuacct cpuset devices freezer memory; do
    if [ ! -d "/sys/fs/cgroup/${cg}" ]; then
        sudo mkdir -p "/sys/fs/cgroup/${cg}"
@@ -49,34 +75,33 @@ for cg in blkio cpu cpuacct cpuset devices freezer memory; do
        sudo mount -t cgroup -o "${cg}" cgroup "/sys/fs/cgroup/${cg}" || true
    fi
 done
+```
 
-# or
-sudo mount -t tmpfs -o mode=755 tmpfs /sys/fs/cgroup
-sudo mkdir -p /sys/fs/cgroup/devices
-sudo mount -t cgroup -o devices cgroup /sys/fs/cgroup/devices
-sudo mkdir -p /sys/fs/cgroup/systemd /sys/fs/cgroup/freezer
-sudo mount -t cgroup cgroup -o none,name=systemd /sys/fs/cgroup/systemd
-sudo mount -t cgroup cgroup -o none,name=freezer /sys/fs/cgroup/freezer
-
-# For systemd-binfmt
+Systemd-binfmt
+```bash
 sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+```
 
-# Configure Network
+Configure Network
+```bash
 sed -i 's/lxc\.net\.0\.type = empty/lxc.net.0.type = none/g' $PREFIX/etc/lxc/default.conf
+```
 
-# Create container
+Create container
+```bash
 sudo lxc-create -n arch -t download -- -d archlinux -r current -a arm64
+```
 
-# Start
+Start
+```bash
 sudo lxc-start -n arch
 sudo lxc-info -n arch
 LD_PRELOAD= sudo lxc-attach -n arch /bin/su -
 ```
 
-Container config
+# Config
+Write to $PREFIX/var/lib/lxc/****/config
 ```conf
-# $PREFIX/var/lib/lxc/****/config
-
 lxc.cgroup.devices.allow = a *:* rwm
 lxc.mount.entry = /data/data/com.termux/files/usr/tmp tmp none bind,optional,create=dir
 lxc.mount.entry = /data/data/com.termux/files/usr/tmp/.X11-unix tmp/.X11-unix none bind,ro,optional,create=dir

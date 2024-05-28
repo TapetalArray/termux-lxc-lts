@@ -64,7 +64,7 @@ Start Termux X11
 termux-x11 &
 ```
 
-Mount cgroup (optipn)
+Mount cgroup (Optional)
 ```bash
 for cg in blkio cpu cpuacct cpuset devices freezer memory; do
    if [ ! -d "/sys/fs/cgroup/${cg}" ]; then

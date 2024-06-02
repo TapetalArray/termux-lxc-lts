@@ -30,6 +30,11 @@ Setup Android SDK
 ./scripts/setup-android-sdk.sh
 ```
 
+Setup Termux
+```bash
+./scripts/setup-termux.sh
+```
+
 Copy build configuration and patches
 ```bash
 cp ../termux-lxc-lts/lxc-lts ./termux-packages/packages
@@ -38,6 +43,11 @@ cp ../termux-lxc-lts/lxc-lts ./termux-packages/packages
 Build
 ```bash
 ./build-package.sh -i -a aarch64 lxc-lts
+```
+
+Build for Termux
+```bash
+./build-package.sh -I lxc-lts
 ```
 
 # Install

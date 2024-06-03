@@ -55,7 +55,7 @@ Install dependencies
 ```bash
 pkg upg
 pkg i x11-repo -y
-pkg i tsu pulseaudio termux-nightly -y
+pkg i tsu pulseaudio termux-x11-nightly -y
 pkg i ./lxc-lts-****.deb
 ```
 

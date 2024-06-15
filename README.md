@@ -99,14 +99,14 @@ sed -i 's/lxc\.net\.0\.type = empty/lxc.net.0.type = none/g' $PREFIX/etc/lxc/def
 
 Create container
 ```bash
-sudo lxc-create -n arch -t download -- -d archlinux -r current -a arm64
+sudo lxc-create -n name -t download
 ```
 
 Start
 ```bash
-sudo lxc-start -n arch
-sudo lxc-info -n arch
-LD_PRELOAD= sudo lxc-attach -n arch /bin/su -
+sudo lxc-start -n name
+sudo lxc-info -n name
+LD_PRELOAD= sudo lxc-attach -n name /bin/su -
 ```
 
 # Config

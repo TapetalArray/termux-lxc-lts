@@ -1,12 +1,12 @@
-# Termux LXC
+# Android LXC LTS
 
-LXC LTS ported for Termux
+LXC LTS ported for Android
 
 # Build
 
 Clone this repo
 ```bash
-git clone https://github.com/TapetalArray/termux-lxc-lts
+git clone https://github.com/TapetalArray/android-lxc-lts
 ```
 
 Setup Termux Packages
@@ -97,7 +97,7 @@ Configure Network
 sed -i 's/lxc\.net\.0\.type = empty/lxc.net.0.type = none/g' $PREFIX/etc/lxc/default.conf
 ```
 
-Create container
+Create Container
 ```bash
 sudo lxc-create -n name -t download
 ```

@@ -2,37 +2,11 @@
 
 LXC LTS ported for Android
 
-# Build
+# Build with Termux Packages
 
 Clone this repo
 ```bash
 git clone https://github.com/TapetalArray/android-lxc-lts
-```
-
-Setup Termux Packages
-```bash
-git clone https://github.com/termux/termux-packages
-cd ./termux-packages
-```
-
-Setup Archlinux
-```bash
-./scripts/setup-archlinux.sh
-```
-
-Setup Ubuntu
-```bash
-./scripts/setup-ubuntu.sh
-```
-
-Setup Android SDK
-```bash
-./scripts/setup-android-sdk.sh
-```
-
-Setup Termux
-```bash
-./scripts/setup-termux.sh
 ```
 
 Copy build configuration and patches
@@ -74,7 +48,7 @@ Start Termux X11
 termux-x11 &
 ```
 
-Mount cgroup (Optional)
+Mount Cgroup (Optional)
 ```bash
 for cg in blkio cpu cpuacct cpuset devices freezer memory; do
    if [ ! -d "/sys/fs/cgroup/${cg}" ]; then

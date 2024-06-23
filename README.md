@@ -11,7 +11,7 @@ git clone https://github.com/TapetalArray/android-lxc-lts
 
 Copy build configuration and patches
 ```bash
-cp ../termux-lxc-lts/lxc-lts ./termux-packages/packages
+cp ../android-lxc-lts/lxc-lts ./termux-packages/packages
 ```
 
 Build

@@ -9,7 +9,7 @@ pkg i ./lxc-lts-****.deb
 ```
 
 # Build
-[Check This](https://github.com/TapetalArray/android-lxc-lts/tree/main/termux-build/README.md)
+[Check This](https://github.com/TapetalArray/android-lxc-lts/tree/main/termux-build)
 
 
 # Recommended after installation

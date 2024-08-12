@@ -15,8 +15,8 @@ LXC LTS ported for Android.
 
 Choose your favorite.
 
-* [Android Apk](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/termux.md)
-* [Termux](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/android-apk.md)
+* [Termux](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/termux.md)
+* [Android Apk](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/android-apk.md)
 * [Magisk Module](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/magisk-module.md)
 
 

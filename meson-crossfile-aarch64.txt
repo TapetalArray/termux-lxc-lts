@@ -1,0 +1,24 @@
+[binaries]
+ar = 'llvm-ar'
+c = 'aarch64-linux-android-clang'
+cmake = 'cmake'
+cpp = 'aarch64-linux-android-clang++'
+ld = 'ld.lld'
+pkg-config = '/home/array/.termux-build/_cache/android-r27-api-24-v0/bin/pkg-config'
+strip = 'llvm-strip'
+
+[properties]
+needs_exe_wrapper = true
+
+[built-in options]
+c_args = ['-fstack-protector-strong', '-Oz', '-I/data/data/com.termux/files/usr/include']
+cpp_args = ['-fstack-protector-strong', '-Oz', '-I/data/data/com.termux/files/usr/include']
+c_link_args = ['-L/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/data/data/com.termux/files/usr/lib', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now', '-ffunction-sections', '-fdata-sections', '-Wl,--gc-sections']
+cpp_link_args = ['-L/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/data/data/com.termux/files/usr/lib', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now', '-ffunction-sections', '-fdata-sections', '-Wl,--gc-sections']
+fortran_link_args = ['-L/data/data/com.termux/files/usr/lib', '-Wl,-rpath=/data/data/com.termux/files/usr/lib', '-Wl,--enable-new-dtags', '-Wl,--as-needed', '-Wl,-z,relro,-z,now', '-ffunction-sections', '-fdata-sections', '-Wl,--gc-sections']
+
+[host_machine]
+cpu_family = 'aarch64'
+cpu = 'aarch64'
+endian = 'little'
+system = 'android'

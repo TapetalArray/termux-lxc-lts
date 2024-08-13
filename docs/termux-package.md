@@ -1,6 +1,6 @@
 # Install
 
-Install dependencies.
+Install dependencies
 
 ```bash
 pkg upg
@@ -8,13 +8,11 @@ pkg i tsu
 pkg i ./lxc-lts-****.deb
 ```
 
-# Build
-[Check This](https://github.com/TapetalArray/android-lxc-lts/tree/main/termux-build)
-
 
 # Recommended after installation
 
-Mount Cgroup (Optional).
+Mount Cgroup (Optional)
+
 ```bash
 for cg in blkio cpu cpuacct cpuset devices freezer memory; do
    if [ ! -d "/sys/fs/cgroup/${cg}" ]; then
@@ -27,11 +25,12 @@ for cg in blkio cpu cpuacct cpuset devices freezer memory; do
 done
 ```
 
-For $PREFIX/var/lib/lxc/name/config.
+For $PREFIX/var/lib/lxc/name/config
+
 ```conf
 lxc.cgroup.devices.allow = a *:* rwm
 
-# For systemd-binfmt.
+# For systemd-binfmt
 lxc.mount.entry = /proc/sys/fs/binfmt_misc proc/sys/fs/binfmt_misc none bind,optional,create=dir
 
 # For fuse
@@ -39,18 +38,21 @@ lxc.mount.entry = /dev/fuse dev/fuse none bind,optional,create=file
 ```
 
 For Systemd-binfmt
+
 ```bash
 sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
 ```
 
 Configure Network (Use host mode)
+
 ```bash
 sed -i 's/lxc\.net\.0\.type = empty/lxc.net.0.type = none/g' $PREFIX/etc/lxc/default.conf
 ```
 
-If you don't use x11 and pulse, you can skip this.
+If you don't use x11 and pulse, you can skip this
 
 Recommended package
+
 ```bash
 pkg upg
 pkg i x11-repo -y
@@ -58,6 +60,7 @@ pkg i tsu pulseaudio termux-x11-nightly -y
 ```
 
 Pulseaudio
+
 ```bash
 pulseaudio --start \
     --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" \
@@ -65,6 +68,7 @@ pulseaudio --start \
 ```
 
 For $PREFIX/var/lib/lxc/name/config
+
 ```conf
 # For Termux X11
 lxc.mount.entry = /data/data/com.termux/files/usr/tmp tmp none bind,optional,create=dir

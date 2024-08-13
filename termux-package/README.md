@@ -1,21 +1,22 @@
 # Use Termux Packages
 
-Clone this repo.
+Clone this repo
+
 ```bash
 git clone https://github.com/TapetalArray/android-lxc-lts
 ```
 
-Copy build configuration and patches.
+Copy build configuration and patches
+
 ```bash
-cp ../android-lxc-lts/termux-build/lxc-lts ./termux-packages/packages
+cp android-lxc-lts/termux-package/lxc-lts termux-packages/packages
 ```
 
-Build.
+Build
+
 ```bash
 ./build-package.sh -i -a aarch64 lxc-lts
-```
 
-Build for Termux.
-```bash
+# For termux
 ./build-package.sh -I lxc-lts
 ```

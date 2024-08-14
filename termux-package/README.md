@@ -16,7 +16,4 @@ Build
 
 ```bash
 ./build-package.sh -i -a aarch64 lxc-lts
-
-# For termux
-./build-package.sh -I lxc-lts
 ```

@@ -27,7 +27,7 @@ jobs:
     - name: Add Package
       run: |
         cd $GITHUB_WORKSPACE
-        cp -r ./lxc/termux-package/lxc-lts ./termux-package/packages      
+        cp -r ./lxc/termux-package/lxc-lts ./termux-packages/packages      
 
     - name: Build Package
       run: |

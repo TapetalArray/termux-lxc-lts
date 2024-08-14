@@ -21,8 +21,8 @@ jobs:
     - name: Setup Termux-Packages
       run: |
         cd $GITHUB_WORKSPACE/termux-packages
-        ./script/setup-ubuntu.sh
-        ./script/setup-android-sdk.sh
+        ./scripts/setup-ubuntu.sh
+        ./scripts/setup-android-sdk.sh
 
     - name: Add Package
       run: |

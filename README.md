@@ -5,12 +5,12 @@ LXC LTS Termux port
 
 # Install
 
-* [usage](https://github.com/TapetalArray/termux-lxc-lts/tree/main/usage.md)
+[usage](https://github.com/TapetalArray/termux-lxc-lts/tree/main/usage.md)
 
 
 # Build
 
-* [build](https://github.com/TapetalArray/termux-lxc-lts/tree/main/build.md)
+[build](https://github.com/TapetalArray/termux-lxc-lts/tree/main/build.md)
 
 
 # Credits

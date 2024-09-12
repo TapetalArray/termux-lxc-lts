@@ -1,4 +1,4 @@
-name: Termux Package Build
+name: LXC LTS Packages Build
 
 on: 
   workflow_dispatch:
@@ -12,11 +12,10 @@ jobs:
 
     - name: Clone Repo
       run: |
-        sudo apt install git
         cd $GITHUB_WORKSPACE
         git clone https://github.com/termux/termux-packages
-        git clone https://github.com/tapetalarray/android-lxc-lts lxc
-        echo "LXC_VER=$(cat ./lxc/termux-package/lxc-lts/build.sh | grep VERSION= | sed -e s/".*="/""/g)" >> $GITHUB_ENV
+        git clone https://github.com/tapetalarray/termux-lxc-lts lxc
+        echo "LXC_VER=$(cat ./lxc/packages/lxc-lts/build.sh | grep VERSION= | sed -e s/".*="/""/g)" >> $GITHUB_ENV
 
     - name: Setup Termux-Packages
       run: |
@@ -27,7 +26,7 @@ jobs:
     - name: Add Package
       run: |
         cd $GITHUB_WORKSPACE
-        cp -r ./lxc/termux-package/lxc-lts ./termux-packages/packages      
+        cp -r ./lxc/packages/lxc-lts ./termux-packages/packages      
 
     - name: Build Package
       run: |

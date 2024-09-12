@@ -1,30 +1,16 @@
-# Android LXC LTS
+# Termux LXC LTS
 
-LXC LTS ported for Android
-
-
-# Features
-
-- [x] LXC Basic
-- [x] Termux Package
-- [ ] Android App
-- [ ] Magisk Module
+LXC LTS Termux port
 
 
 # Install
 
-Choose your favorite
-
-* [Termux Package](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/termux-package.md)
-* [Android App](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/android-app.md)
-* [Magisk Module](https://github.com/TapetalArray/android-lxc-lts/tree/main/docs/magisk-module.md)
+* [usage](https://github.com/TapetalArray/termux-lxc-lts/tree/main/usage.md)
 
 
 # Build
 
-* [Termux](https://github.com/TapetalArray/android-lxc-lts/tree/main/termux-package)
-* [Android](https://github.com/TapetalArray/android-lxc-lts/tree/main/android-app)
-* [Magisk](https://github.com/TapetalArray/android-lxc-lts/tree/main/magisk-module)
+* [build](https://github.com/TapetalArray/termux-lxc-lts/tree/main/build.md)
 
 
 # Credits

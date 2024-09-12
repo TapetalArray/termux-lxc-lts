@@ -3,13 +3,13 @@
 Clone this repo
 
 ```bash
-git clone https://github.com/TapetalArray/android-lxc-lts
+git clone https://github.com/TapetalArray/termux-lxc-lts
 ```
 
 Copy build configuration and patches
 
 ```bash
-cp -r android-lxc-lts/termux-package/lxc-lts termux-packages/packages
+cp -r termux-lxc-lts/packages/lxc-lts termux-packages/packages
 ```
 
 Build
